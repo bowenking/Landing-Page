@@ -33,7 +33,7 @@ h1 {
 @media only screen and (min-width: 35em){
     h1 {
         font-size: 7em;
-        margin: 2em 4rem 1em;
+        margin: 2em 4rem 1.7em;
     }
 }
 
@@ -60,7 +60,7 @@ main {
 }
 
 section {
-    position: relative;
+    /* position: relative; */
     min-height: 80vh;
 }
 
@@ -119,7 +119,14 @@ li:hover {
     transition: ease 0.3s all;
 }
 
-.section1_scroll{
+
+.active{
+    background: grey;
+    color: white;
+    transition: ease 0.3s all;
+}
+
+/* .section1_scroll{
     background: grey;
     color: white;
     transition: ease 0.3s all;
@@ -141,7 +148,7 @@ li:hover {
     background: grey;
     color: white;
     transition: ease 0.3s all;
-}
+} */
 
  /* Header Styles  */
 .page__header {
