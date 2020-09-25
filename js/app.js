@@ -14,52 +14,18 @@
 */
 console.log("hello suckers");
 
-/**
- * Define Global Variables
- * 
-*/
 
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
+//global variables
 
 const menu = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
 const topBtn = document.querySelector('.top-link');
 
 //console.log(sections);
+
+
+//nav bar building
 
 function navBuilding(){
     for (let i = 1; i <= sections.length; i++){
@@ -81,10 +47,8 @@ function navBuilding(){
 
 navBuilding();
 
-function removeActive() {
-        listId.classList.remove('active');
-};
 
+//active section
 
 function sectionActive(){
 
@@ -130,7 +94,7 @@ function sectionActive(){
      
 };
 
-//((0 <= secTop <= section.offsetHeight) && (secBot <= section.offsetHeight) && (scrollHeight >= (section.offsetHeight * i)))
+
 
 window.addEventListener('scroll', function(){
     sectionActive();
@@ -138,10 +102,10 @@ window.addEventListener('scroll', function(){
 
 
 
-const sec1Top = section1.getBoundingClientRect().top;
-const sec1Bot = section1.getBoundingClientRect().bottom;
- console.log(sec1Top);
-console.log(sec1Bot);
+// const sec1Top = section1.getBoundingClientRect().top;
+// const sec1Bot = section1.getBoundingClientRect().bottom;
+//  console.log(sec1Top);
+// console.log(sec1Bot);
 //console.log(window.pageYOffset);
 // // console.log(section1.clientHeight);
 // // console.log(section2.clientHeight);
@@ -215,6 +179,8 @@ console.log(sec1Bot);
 // })
 
 
+
+//smooth scroll function
 function scroll(){
     for (let i = 1; i <= sections.length; i++){
         let section = document.getElementById(`section${i}`);
