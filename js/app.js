@@ -57,6 +57,7 @@ console.log("hello suckers");
 
 const menu = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
+const topBtn = document.querySelector('.top-link');
 
 //console.log(sections);
 
@@ -80,11 +81,16 @@ function navBuilding(){
 
 navBuilding();
 
+function removeActive() {
+        listId.classList.remove('active');
+};
 
 
 function sectionActive(){
 
     const scrollHeight = window.pageYOffset;
+    const innerHeight = window.innerHeight;
+
 
     for(let i = 1; i <= sections.length; i++){
 
@@ -95,10 +101,12 @@ function sectionActive(){
         // console.log(secTop);
         // console.log(secBot);
         // console.log(section.offsetHeight);
-        if ( (section.offsetHeight * i) <= scrollHeight <= (section.offsetHeight * (i+1))
-        && (0 <= secTop <= section.offsetHeight)
-        && (secBot <= section.offsetHeight)
-        )  
+
+        // if ( (section.offsetHeight * i) <= scrollHeight <= (section.offsetHeight * (i+1))
+        // && (0 <= secTop <= section.offsetHeight)
+        // && (secBot <= section.offsetHeight)
+        // )
+        if(secTop < innerHeight/3 && secBot > innerHeight/3)  
         {
             listId.classList.add('active');
         }
@@ -106,6 +114,19 @@ function sectionActive(){
             listId.classList.remove('active');
         }
     }
+
+    console.log(innerHeight);
+
+    //for the back to top button
+    const sec = document.getElementById('section1');
+    if (scrollHeight > sec.offsetHeight){
+        topBtn.classList.add('show-link');
+    }
+    else{
+        topBtn.classList.remove('show-link');
+    }
+
+   
      
 };
 
@@ -115,24 +136,25 @@ window.addEventListener('scroll', function(){
     sectionActive();
 });
 
-const section1 = document.getElementById('container1');
-const section2 = document.getElementById('container2');
-const section3 = document.getElementById('container3');
-const section4 = document.getElementById('container4');
+
 
 const sec1Top = section1.getBoundingClientRect().top;
 const sec1Bot = section1.getBoundingClientRect().bottom;
-console.log(sec1Top);
+ console.log(sec1Top);
 console.log(sec1Bot);
-console.log(window.pageYOffset);
-// console.log(section1.clientHeight);
-// console.log(section2.clientHeight);
-// console.log(section3.clientHeight);
-// console.log(section4.clientHeight);
+//console.log(window.pageYOffset);
+// // console.log(section1.clientHeight);
+// // console.log(section2.clientHeight);
+// // console.log(section3.clientHeight);
+// // console.log(section4.clientHeight);
 
+//This below is another way to set active view, less elegant code. More repetitiveness, less 
+//efficient
 
-
-
+// const section1 = document.getElementById('container1');
+// const section2 = document.getElementById('container2');
+// const section3 = document.getElementById('container3');
+// const section4 = document.getElementById('container4');
 
 // const sec1_li = document.getElementById("section1_li");
 // const sec2_li = document.getElementById("section2_li");
@@ -191,3 +213,24 @@ console.log(window.pageYOffset);
 //     window.scrollTo(0, section1Top);
     
 // })
+
+
+function scroll(){
+    for (let i = 1; i <= sections.length; i++){
+        let section = document.getElementById(`section${i}`);
+        const listId = document.getElementById(`secLi_${i}`);
+        listId.addEventListener('click', function(){
+            section.scrollIntoView({behavior: "smooth"})
+        });
+    }
+};
+
+scroll();
+
+
+//scroll to top smoothly
+
+topBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({top:0, behavior: "smooth"});
+});

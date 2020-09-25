@@ -114,7 +114,7 @@ a:visited{
 } */
 
 li:hover {
-    background: #333;
+    background: grey;
     color: #fff;
     transition: ease 0.3s all;
 }
@@ -149,6 +149,33 @@ li:hover {
     color: white;
     transition: ease 0.3s all;
 } */
+
+
+
+/* back to top button style */
+
+.top-link {
+    font-size: 1.25rem;
+    position: fixed;
+    bottom: 2.5rem;
+    right: 1.5rem;
+    background: lightslategrey;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 7.5px;
+    color: white;
+    animation: bounce 2s ease-in-out infinite;
+    visibility: hidden;
+    z-index: -100;
+  }
+  .show-link {
+    visibility: visible;
+    z-index: 100;
+  }
+
+
 
  /* Header Styles  */
 .page__header {
